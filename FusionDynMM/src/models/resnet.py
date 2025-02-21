@@ -16,7 +16,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.utils.model_zoo as model_zoo
 import warnings
-from src.models.model_utils import SqueezeAndExcitation
+# from src.models.model_utils import SqueezeAndExcitation
 
 __all__ = ['ResNet', 'ResNet18', 'ResNet34', 'ResNet50']
 
@@ -510,10 +510,14 @@ def load_pretrained_with_different_encoder_block(
 
 
 if __name__ == '__main__':
+    # model = ResNet34(block='NonBottleneck1D', pretrained_on_imagenet=False, input_channels=1)
+    from model_utils import SqueezeAndExcitation
+
     model = ResNet34(block='NonBottleneck1D', pretrained_on_imagenet=False, input_channels=1)
 
     model.eval()
     print(model)
+    # image = torch.randn(1, 1, 480, 640)
     image = torch.randn(1, 1, 480, 640)
     from torch.autograd import Variable
 

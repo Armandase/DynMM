@@ -67,7 +67,9 @@ def build_model(args, n_classes):
                 fuse_depth_in_rgb_encoder=args.fuse_depth_in_rgb_encoder,
                 upsampling=args.upsampling,
                 temp=args.temp,
-                block_rule=block_rule
+                block_rule=block_rule,
+                nb_channel_rgb=args.nb_channel_rgb,
+                nb_channel_nir=args.nb_channel_nir,
             )
 
         else:
@@ -88,7 +90,9 @@ def build_model(args, n_classes):
                 fuse_depth_in_rgb_encoder=args.fuse_depth_in_rgb_encoder,
                 upsampling=args.upsampling,
                 temp=args.temp,
-                block_rule=block_rule
+                block_rule=block_rule,
+                nb_channel_rgb=args.nb_channel_rgb,
+                nb_channel_nir=args.nb_channel_nir,
             )
 
     else:
@@ -113,7 +117,9 @@ def build_model(args, n_classes):
                 nr_decoder_blocks=nr_decoder_blocks,
                 channels_decoder=channels_decoder,
                 fuse_depth_in_rgb_encoder=args.fuse_depth_in_rgb_encoder,
-                upsampling=args.upsampling
+                upsampling=args.upsampling,
+                input_channels_rgb=args.nb_channel_rgb,
+                input_channels_nir=args.nb_channel_nir,
             )
 
         else:  # just one modality

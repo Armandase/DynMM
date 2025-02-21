@@ -142,6 +142,7 @@ class RandomHSV:
 
     def __call__(self, sample):
         img = sample['image']
+        img = img / 255.0
         img_hsv = matplotlib.colors.rgb_to_hsv(img)
         img_h = img_hsv[:, :, 0]
         img_s = img_hsv[:, :, 1]
